@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #000;
+  text-align: center;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Carte pricing */
+.pricing {
+  width: 300px;
+  margin: 20px auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ccc;
+  padding: 20px;
+  text-align: left;
+  border-radius: 8px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 18px;
+  color: green;
+}
+
+.features {
+  list-style: none;
+  padding-left: 0;
+}
+
+.features li {
+  padding: 4px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.btn {
+  background: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background: darkblue;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .pricing {
+  background-color: #1e1e1e;
+  box-shadow: 0 0 10px #444;
+}
+
+body.dark-mode .btn {
+  background-color: #bb86fc;
+  color: #121212;
+}
+
+body.dark-mode .btn:hover {
+  background-color: #9a63e6;
+}
+
+body.dark-mode .features li {
+  border-bottom: 1px solid #333;
+}
+</style>
+</head>
+<body>
+
+<button id="theme-toggle">🌙 Dark Mode</button>
+
+<!-- Carte 1 -->
+<div class="pricing">
+  <h2 class="title">Basic Plan</h2>
+  <p class="price">$9.99 /month</p>
+  <ul class="features">
+    <li>1 GB Storage</li>
+    <li>Basic Support</li>
+    <li>All Core Features</li>
+  </ul>
+  <button class="btn" onclick="alert('You chose the Basic Plan')">Start Trial</button>
+</div>
+
+<!-- Carte 2 -->
+<div class="pricing">
+  <h2 class="title">Pro Plan</h2>
+  <p class="price">$19.99 /month</p>
+  <ul class="features">
+    <li>10 GB Storage</li>
+    <li>Priority Support</li>
+    <li>All Core Features</li>
+  </ul>
+  <button class="btn" onclick="alert('You chose the Pro Plan')">Start Trial</button>
+</div>
+
+<!-- Carte 3 -->
+<div class="pricing">
+  <h2 class="title">Enterprise Plan</h2>
+  <p class="price">$49.99 /month</p>
+  <ul class="features">
+    <li>100 GB Storage</li>
+    <li>24/7 Support</li>
+    <li>All Core Features</li>
+  </ul>
+  <button class="btn" onclick="alert('You chose the Enterprise Plan')">Start Trial</button>
+</div>
+
+<script>
+const toggleBtn = document.getElementById("theme-toggle");
+
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  
+  // Change l’icône et texte du bouton
+  if(document.body.classList.contains("dark-mode")) {
+    toggleBtn.textContent = "☀️ Light Mode";
+  } else {
+    toggleBtn.textContent = "🌙 Dark Mode";
+  }
+});
+</script>
+
+</body>
+</html>

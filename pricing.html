@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.pricing {
+  width: 300px;
+  margin: 20px auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ccc;
+  padding: 20px;
+  text-align: left;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #bbb;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 18px;
+  color: green;
+  margin-bottom: 10px;
+}
+
+.features {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 15px;
+}
+
+.features li {
+  padding: 4px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.btn {
+  background: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: darkblue;
+}
+</style>
+</head>
+<body>
+
+<div id="pricing-container"></div>
+
+<script>
+// Composant réutilisable
+function createCard(title, price, features) {
+  const card = document.createElement('div');
+  card.className = 'pricing';
+
+  const h2 = document.createElement('h2');
+  h2.className = 'title';
+  h2.textContent = title;
+
+  const p = document.createElement('p');
+  p.className = 'price';
+  p.textContent = price;
+
+  const ul = document.createElement('ul');
+  ul.className = 'features';
+  features.forEach(f => {
+    const li = document.createElement('li');
+    li.textContent = f;
+    ul.appendChild(li);
+  });
+
+  const button = document.createElement('button');
+  button.className = 'btn';
+  button.textContent = 'Start Trial';
+  button.onclick = () => alert(`You chose the ${title}`);
+
+  card.appendChild(h2);
+  card.appendChild(p);
+  card.appendChild(ul);
+  card.appendChild(button);
+
+  return card;
+}
+
+// Ajouter plusieurs cartes
+const container = document.getElementById('pricing-container');
+container.appendChild(createCard('Basic Plan', '$9.99 /month', ['1 GB Storage', 'Basic Support', 'All Core Features']));
+container.appendChild(createCard('Pro Plan', '$19.99 /month', ['10 GB Storage', 'Priority Support', 'All Core Features']));
+container.appendChild(createCard('Enterprise Plan', '$49.99 /month', ['100 GB Storage', '24/7 Support', 'All Core Features']));
+</script>
+
+</body>
+</html>
